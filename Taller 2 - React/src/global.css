@@ -1,0 +1,28 @@
+:root {
+    --primary-color: #1A1A2E;
+    --accent-color: #E94560;
+    --inverse-text-color: #FFF;
+    --text-color: #1A1A2E;
+    --secondary-text-color: #666;
+
+    --lighter-container-color: #FFF;
+    --container-color: #F8F9FA;
+
+    --text-xs: clamp(.7rem, 1vw, .9rem);
+    --text-sm: clamp(.8rem, 1.5vw, .9rem);
+    --text-md: clamp(1.05rem, 2vw, 1rem);
+    --text-lg: clamp(1.4rem, 2vw, 2rem);
+    --text-xl: clamp(2rem, 3vw, 4rem);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial';
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}

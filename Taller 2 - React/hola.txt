@@ -1,0 +1,97 @@
+#!/bin/bash
+
+ganadores="ganadores.doc"
+perdedores="perdedores.txt"
+
+touch "$ganadores" "$perdedores"
+
+echo "=== ADIVINA EL NÚMERO ==="
+read -p "Ingresa tu nombre: " nombre
+
+echo ""
+echo "Elige un nivel:"
+echo "1) Básico (1-50, 12 intentos)"
+echo "2) Intermedio (1-100, 10 intentos)"
+echo "3) Avanzado (1-100, 8 intentos)"
+read -p "Opción: " opcion
+
+if [ "$opcion" = "1" ]; then
+    nivel="Basico"
+    min=1
+    max=50
+    intentos_max=12
+elif [ "$opcion" = "2" ]; then
+    nivel="Intermedio"
+    min=1
+    max=100
+    intentos_max=10
+elif [ "$opcion" = "3" ]; then
+    nivel="Avanzado"
+    min=1
+    max=100
+    intentos_max=8
+else
+    echo "Opción no válida"
+    exit 1
+fi
+
+numero=$((RANDOM % max + min))
+fecha=$(date "+%Y-%m-%d %H:%M:%S")
+gano="no"
+
+echo ""
+echo "Nivel: $nivel"
+echo "Debes adivinar un número entre $min y $max"
+echo "Tienes $intentos_max intentos"
+echo ""
+
+for ((i=1; i<=intentos_max; i++))
+do
+    read -p "Intento $i: " intento
+
+    if ! [[ "$intento" =~ ^[0-9]+$ ]]; then
+        echo "Ingresa un número válido"
+        i=$((i-1))
+        continue
+    fi
+
+    if [ "$intento" -eq "$numero" ]; then
+        echo "¡Correcto! Ganaste en $i intentos"
+        echo "Nombre: $nombre | Nivel: $nivel | Resultado: Gano | Intentos: $i | Fecha: $fecha" >> "$ganadores"
+        gano="si"
+        break
+    else
+        echo "Incorrecto"
+
+        if [ "$intento" -lt "$numero" ]; then
+            echo "El número es mayor"
+        else
+            echo "El número es menor"
+        fi
+
+        if [ "$nivel" = "Basico" ]; then
+            diferencia=$((intento - numero))
+
+            if [ "$diferencia" -lt 0 ]; then
+                diferencia=$((diferencia * -1))
+            fi
+
+            if [ "$diferencia" -le 2 ]; then
+                echo "Estás muy muy cerca"
+            elif [ "$diferencia" -le 5 ]; then
+                echo "Estás muy cerca"
+            elif [ "$diferencia" -le 10 ]; then
+                echo "Estás cerca"
+            else
+                echo "Estás lejos"
+            fi
+        fi
+    fi
+
+    echo ""
+done
+
+if [ "$gano" = "no" ]; then
+    echo "Perdiste. El número era $numero"
+    echo "Nombre: $nombre | Nivel: $nivel | Resultado: Perdio | Intentos: $intentos_max | Fecha: $fecha" >> "$perdedores"
+fi
