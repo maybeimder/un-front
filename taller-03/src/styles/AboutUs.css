@@ -1,0 +1,120 @@
+/* ============= ABOUT US ============== */
+.aboutus-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============= MISSION / VISION ============== */
+.aboutus-mission {
+    display: flex;
+    gap: 2rem;
+    padding: 4rem 6vw;
+    background-color: var(--container-color);
+}
+
+.mission-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.mission-block h3 {
+    font-size: var(--text-md);
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+.mission-block p {
+    font-size: var(--text-sm);
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+}
+
+/* ============= STORY ============== */
+.aboutus-story {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 4rem 6vw;
+    background-color: var(--lighter-container-color);
+    max-width: 720px;
+}
+
+.aboutus-story h2 {
+    font-size: var(--text-lg);
+    color: var(--text-color);
+}
+
+.aboutus-story p {
+    font-size: var(--text-sm);
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+}
+
+/* ============= cardS ============== */
+.aboutus-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 4rem 6vw;
+    background-color: var(--container-color);
+    font-size: var(--text-lg);
+    color: var(--text-color);
+}
+
+.aboutus-cards p {
+    color: var(--secondary-text-color);
+    font-size: var(--text-sm);
+}
+
+.cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cards-container > * {
+    max-width: 280px;
+    aspect-ratio: 1;
+    padding: 2rem;
+    width: 100%;
+    flex: 1;
+}
+
+/* ============= VALUES ============== */
+.aboutus-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 4rem 6vw;
+    background-color: var(--lighter-container-color);
+}
+
+.aboutus-values h2 {
+    font-size: var(--text-lg);
+    color: var(--text-color);
+}
+
+.value-item {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent-color);
+}
+
+.value-item h4 {
+    font-size: var(--text-md);
+    color: var(--text-color);
+}
+
+.value-item p {
+    font-size: var(--text-sm);
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+}

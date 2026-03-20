@@ -1,0 +1,27 @@
+.courses-wrapper {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    padding: 4rem 8vw;
+}
+
+.courses-wrapper h1 {
+    color: var(--text-color);
+    font-size: var(--text-xl);
+}
+
+.courses-wrapper > p {
+    font-size: var(--text-md);
+    color: var(--secondary-text-color);
+}
+
+.courses-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    padding: 4rem 0;
+    gap: 2rem;
+    width: 100%;
+}
